@@ -37,6 +37,16 @@ class App extends Component {
       todoList: todoItems,
     };
   }
+
+  displayCompleted = (status) => {
+    if (status) {
+      return this.setState({ viewCompleted: true});
+    }
+
+    return this.setState({viewCompleted: false});
+  };
+
+
 }
 
 
