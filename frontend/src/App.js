@@ -52,7 +52,13 @@ class App extends Component {
         <span
           className={this.state.viewCompleted ? 'nav-link active' : 'nav-link'}
           onClick={() => this.displayCompleted(true)}
-          >
+        >
+          Complete
+        </span>
+        <span
+          className={this.state.viewCompleted ? 'nav-link' : 'nav-link active'}
+          onClick={() => this.displayCompleted(false)}
+        >
           Incomplete
         </span>
       </div>
