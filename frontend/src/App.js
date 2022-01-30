@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, {Component} from 'react';
 
@@ -68,7 +67,7 @@ class App extends Component {
   renderItems = () => {
     const { viewCompleted } = this.state;
     const newItems = this.state.todoList.filter(
-      (item) => item.completed == viewCompleted
+      (item) => item.is_completed === viewCompleted
     );
     return newItems.map((item) => (
       <li
@@ -98,28 +97,31 @@ class App extends Component {
       </li>
     ));
   };
-}
 
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <main className='container'>
+        <h1 className='text-white text-uppercase text-center my-4'>Todo app</h1>
+        <div className='row'>
+          <div className='col-md-6 col-sm-10 mx-auto p-0'>
+            <div className='card p-3'>
+              <div className='mb-4'>
+                <button
+                  className='btn btn-primary'
+                >
+                  Add task
+                </button>
+              </div>
+              {this.renderTabList()}
+              <ul className='list-group list-group-flush border-top-0'>
+                {this.renderItems()}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
+  }
 }
 
 export default App;
